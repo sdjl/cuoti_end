@@ -1,0 +1,35 @@
+/* 导航栏和页脚样式 */
+.primary-button {
+  background: linear-gradient(90deg, var(--primary), var(--sidebar-primary));
+  color: var(--primary-foreground);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(var(--primary), 0.3);
+}
+
+.secondary-button {
+  background: var(--background);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: var(--secondary);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--sidebar-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer components {
+  /* 移动端容器 */
+  .demo-mobile-container {
+    @apply max-w-md mx-auto bg-gray-100 min-h-screen;
+  }
+
+  /* 状态栏间距 */
+  .demo-status-bar-spacer {
+    height: 44px; /* iOS status bar height */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .demo-safe-area-top {
+    @apply bg-transparent;
+  }
+
+  .demo-safe-area-bottom {
+    height: 34px; /* iOS home indicator */
+    @apply bg-gray-100;
+  }
+
+  /* 顶部标题 */
+  .demo-header {
+    @apply bg-white shadow-sm p-4 text-center;
+  }
+
+  .demo-header-title {
+    @apply text-lg font-semibold text-gray-800;
+  }
+
+  /* 内容区域 */
+  .demo-content {
+    @apply px-4 space-y-3 pb-4;
+  }
+
+  /* 玻璃拟态样式 - 参考风格4 */
+  .glass-header-container {
+    /* 移除最外层背景色，保持透明 */
+  }
+
+  .glass-card {
+    background-color: #ffffff !important; /* 确保卡片为纯白色 */
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-inner {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .glass-score-badge {
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .glass-result-card {
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* 聊天气泡样式增强 */
+  .chat-message-user {
+    @apply bg-blue-500 text-white rounded-lg p-3 max-w-[80%] ml-auto;
+    border-radius: 18px 18px 4px 18px;
+  }
+
+  .chat-message-assistant {
+    @apply bg-gray-100 text-gray-800 rounded-lg p-3 max-w-[80%];
+    border-radius: 18px 18px 18px 4px;
+  }
+
+  .chat-message-system {
+    @apply bg-yellow-100 text-yellow-800 rounded-lg p-3 max-w-[80%];
+    border-radius: 18px 18px 18px 4px;
+  }
+
+  /* 图片模态框样式 */
+  .image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .image-modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .image-modal-image {
+    max-width: 90vh;
+    max-height: 90vw;
+    object-fit: contain;
+    transform: rotate(90deg);
+  }
+
+  .image-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .image-modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* 题目信息展开动画 */
+  .question-info-expanded {
+    animation: expandContent 0.3s ease-out;
+  }
+
+  @keyframes expandContent {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 1000px;
+    }
+  }
+
+  /* 状态标签样式 */
+  .status-badge-mastered {
+    @apply inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full;
+  }
+
+  .status-badge-learning {
+    @apply inline-flex items-center px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full;
+  }
+
+  /* 加载动画 */
+  .loading-spinner {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* 按钮悬停效果 */
+  .teacher-help-button {
+    @apply w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .teacher-help-button:disabled {
+    @apply bg-gray-300 cursor-not-allowed;
+  }
+
+  /* 响应式图片 */
+  .question-image {
+    @apply w-full rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* 聊天记录滚动条样式 - 完全隐藏 */
+  .chat-messages-container {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+
+  .chat-messages-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}

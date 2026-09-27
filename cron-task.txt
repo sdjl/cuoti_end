@@ -1,0 +1,2 @@
+# 每分钟访问一次 API，携带密码参数
+* * * * * curl -s "http://localhost:3000/api/run-mistake-batch-task?secret=xK9mP2nQ7vR4wL8zT5jY" > /dev/null 2>&1
